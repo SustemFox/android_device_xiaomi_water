@@ -1,0 +1,45 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+# mount point       fstype    device                                                                flags
+/metadata       ext4       /dev/block/by-name/md_udc                            flags=display="Metadata";backup=1
+/data           f2fs       /dev/block/by-name/userdata                          flags=display="Data";fileencryption=aes-256-xts:aes-256-cts:v2
+/tranfs         ext4       /dev/block/by-name/tranfs 
+/protect_f      ext4       /dev/block/by-name/protect1                          flags=display="Protect_f";backup=1
+/protect_s      ext4       /dev/block/by-name/protect2                          flags=display="Protect_s";backup=1
+/nvdata         ext4       /dev/block/by-name/nvdata                            flags=display="Nvdata";backup=1
+/nvcfg          ext4       /dev/block/by-name/nvcfg                             flags=display="Nvcfg";backup=1
+/persist        ext4       /dev/block/by-name/persist                           flags=display="Persist"
+/persistent     emmc       /dev/block/by-name/frp                               flags=display="Persistent"
+/nvram          emmc       /dev/block/by-name/nvram                             flags=display="Nvram"
+/proinfo        emmc       /dev/block/by-name/proinfo                           flags=display="Proinfo"
+/bootloader      emmc     /dev/block/by-name/lk                                 flags=display="Bootloader"
+/bootloader2     emmc     /dev/block/by-name/lk2                                flags=display="Bootloader2"
+/misc            emmc     /dev/block/by-name/misc                               flags=display="Misc"
+/para            emmc     /dev/block/by-name/para                               flags=display="Para"
+/boot            emmc     /dev/block/by-name/boot                               flags=display="Boot";backup=1;slotselect;flashimg=1
+/vbmeta_vendor   emmc     /dev/block/by-name/vbmeta_vendor                      flags=display="Vbmeta Vendor";slotselect;flashimg=1
+/vbmeta_system   emmc     /dev/block/by-name/vbmeta_system                      flags=display="Vbmeta System";slotselect;flashimg=1
+/logo           emmc       /dev/block/by-name/logo 
+/expdb          emmc       /dev/block/by-name/expdb 
+/seccfg         emmc       /dev/block/by-name/seccfg 
+/tee1           emmc       /dev/block/by-name/tee1 
+/tee2           emmc       /dev/block/by-name/tee2 
+/scp1           emmc       /dev/block/by-name/scp1 
+/scp2           emmc       /dev/block/by-name/scp2 
+/sspm_1         emmc       /dev/block/by-name/sspm_1 
+/sspm_2         emmc       /dev/block/by-name/sspm_2 
+/md1img         emmc       /dev/block/by-name/md1img 
+/md1dsp         emmc       /dev/block/by-name/md1dsp 
+/gz1            emmc       /dev/block/by-name/gz1 
+/gz2            emmc       /dev/block/by-name/gz2 
+/spmfw          emmc       /dev/block/by-name/spmfw 
+/boot_para      emmc       /dev/block/by-name/boot_para 
+/dtbo           emmc       /dev/block/by-name/dtbo                              flags=display="Dtbo"
+/otp            emmc       /dev/block/by-name/otp 
+/vbmeta         emmc       /dev/block/by-name/vbmeta                            flags=display="Vbmeta";flashimg=1
+/tkv            emmc       /dev/block/by-name/tkv                               flags=display="Tkv"
+# External Storage
+/sdcard1            vfat     /dev/block/mmcblk0p1     /dev/block/mmcblk0     flags=display="MicroSD Card";storage;wipeingui;removable;fsflags="utf8"
+/usb_otg            vfat     /dev/block/sdd1          /dev/block/sdd         flags=display="USB-Storage";storage;wipeingui;removable;fsflags="utf8"
