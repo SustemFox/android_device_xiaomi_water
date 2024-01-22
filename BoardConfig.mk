@@ -80,7 +80,7 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 1
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
 
 # System as root
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
